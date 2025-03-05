@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoParts Direct</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .product {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+        .product h2 {
+            margin: 0;
+            color: #333;
+        }
+        .product p {
+            margin: 5px 0;
+        }
+        .product img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .price {
+            color: green;
+            font-weight: bold;
+        }
+        .buy-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .buy-btn:hover {
+            background: #218838;
+        }
+    </style>
+    <script>
+        function showPayoneerDetails() {
+            alert("Please send payment via Payoneer to: Sugebrown22@gmail.com");
+        }
+    </script>
+</head>
+<body>
+    <div class="header">AutoParts Direct - Premium Car Parts</div>
+    <div class="container">
+        <div class="product">
+            <h2>Brake Master Cylinder</h2>
+            <img src="https://via.placeholder.com/200" alt="Brake Master Cylinder">
+            <p class="price">$300.00</p>
+            <a href="#" class="buy-btn" onclick="showPayoneerDetails()">Pay with Payoneer</a>
+        </div>
+        <div class="product">
+            <h2>High-Performance Turbocharger Kit</h2>
+            <img src="https://via.placeholder.com/200" alt="Turbocharger Kit">
+            <p class="price">$2000.00</p>
+            <a href="#" class="buy-btn" onclick="showPayoneerDetails()">Pay with Payoneer</a>
+        </div>
+        <div class="product">
+            <h2>Engine Control Module (ECM)</h2>
+            <img src="https://via.placeholder.com/200" alt="Engine Control Module">
+            <p class="price">$1200.00</p>
+            <a href="#" class="buy-btn" onclick="showPayoneerDetails()">Pay with Payoneer</a>
+        </div>
+        <div class="product">
+            <h2>Transmission Assembly</h2>
+            <img src="https://via.placeholder.com/200" alt="Transmission Assembly">
+            <p class="price">$2500.00</p>
+            <a href="#" class="buy-btn" onclick="showPayoneerDetails()">Pay with Payoneer</a>
+        </div>
+    </div>
+</body>
+</html>
