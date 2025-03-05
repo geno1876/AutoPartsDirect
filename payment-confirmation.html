@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation - AutoParts Direct</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #f8f9fa; }
+        .header { background-color: #333; color: white; padding: 20px; font-size: 24px; }
+        .container { max-width: 500px; margin: 20px auto; padding: 20px; background: white; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); border-radius: 10px; text-align: left; }
+        .details { font-size: 16px; margin-bottom: 20px; }
+        .payment-info { background: #e9ecef; padding: 10px; border-radius: 5px; }
+        .home-btn { display: block; width: 100%; padding: 12px; background: #007bff; color: white; text-decoration: none; border: none; border-radius: 5px; font-size: 16px; text-align: center; margin-top: 20px; }
+    </style>
+    <script>
+        function loadOrderDetails() {
+            let order = JSON.parse(localStorage.getItem("orderDetails"));
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            if (order) {
+                document.getElementById("order-name").innerText = order.name;
+                document.getElementById("order-address").innerText = order.address + ", " + order.city + " " + order.zip + ", " + order.country;
+                document.getElementById("order-payment").innerText = "Payoneer - Sugebrown22@gmail.com";
+                document.getElementById("order-total").innerText = "$" + total.toFixed(2);
+            }
+        }
+        window.onload = loadOrderDetails;
+    </script>
+</head>
+<body>
+    <div class="header">Payment Confirmation</div>
+    <div class="container">
+        <p class="details">Thank you, <b id="order-name"></b>! Your order has been placed.</p>
+        <p class="details">Shipping Address: <b id="order-address"></b></p>
+        <p class="payment-info">To complete your payment, please send <b id="order-total"></b> to <b id="order-payment"></b></p>
+        <p class="details">Once payment is sent, please email your payment receipt to <b>Sugebrown22@gmail.com</b> for order processing.</p>
+        <a href="index.html" class="home-btn">Return to Home</a>
+    </div>
+</body>
+</html>
