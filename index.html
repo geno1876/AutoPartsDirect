@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoParts Direct - Premium Car Parts</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; text-align: center; }
+        .header { background-color: #333; color: white; padding: 20px; font-size: 28px; font-weight: bold; }
+        .nav { background: #007bff; padding: 10px; position: relative; }
+        .nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 18px; }
+        .container { max-width: 1100px; margin: 30px auto; padding: 20px; background: white; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); border-radius: 10px; }
+        .welcome-message { font-size: 20px; font-weight: bold; color: #333; margin-bottom: 20px; }
+        .product { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 20px 0; }
+        .product img { width: 180px; height: auto; border-radius: 5px; }
+        .product-info { flex: 1; text-align: left; padding-left: 20px; }
+        .product h2 { margin: 0; font-size: 22px; color: #333; }
+        .price { color: #28a745; font-weight: bold; font-size: 20px; }
+        .buy-btn, .cart-btn { display: inline-block; padding: 12px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; transition: background 0.3s; cursor: pointer; }
+        .cart-btn { background: #28a745; }
+        .footer { background-color: #333; color: white; padding: 20px; margin-top: 30px; font-size: 16px; }
+    </style>
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(product + " has been added to your cart.");
+        }
+    </script>
+</head>
+<body>
+    <div class="header">AutoParts Direct - Premium Car Parts</div>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+    </div>
+    <div class="container">
+        <div class="welcome-message">Welcome to AutoParts Direct - Your Trusted Source for High-Quality Auto Parts. Find the Best Deals and Reliable Parts for Your Vehicle!</div>
+        <div class="product"><img src="https://raw.githubusercontent.com/geno1876/AutoPartsDirect/main/images/brake_master_cylinder.jpg" alt="Brake Master Cylinder"><div class="product-info"><h2><a href="shop.html#brake-master-cylinder" style="text-decoration: none; color: black;">Brake Master Cylinder</a></h2><p style="font-size: 14px; color: gray;">A high-quality brake master cylinder designed for performance and durability, ensuring safe braking.</p><p class="price">$300.00</p><button class="cart-btn" onclick="addToCart('Brake Master Cylinder', 300)">Add to Cart</button></div></div>
+        </div>
+        </div>
+        <div class="product"><img src="https://raw.githubusercontent.com/geno1876/AutoPartsDirect/main/images/transmission_assembly.jpg" alt="Transmission Assembly"><div class="product-info"><h2><a href="shop.html#transmission-assembly" style="text-decoration: none; color: black;">Transmission Assembly</a></h2><p style="font-size: 14px; color: gray;">A complete transmission assembly to ensure smooth gear shifts and reliability for your vehicle.</p><p class="price">$2500.00</p><button class="cart-btn" onclick="addToCart('Transmission Assembly', 2500)">Add to Cart</button></div></div>
+    </div>
+    <div class="footer">
+        <a href="about.html" style="color:lightblue;">About</a> | 
+        <a href="refund.html" style="color:lightblue;">Refund Policy</a>
+    </div>
+</body>
+</html>
