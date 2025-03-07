@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turbocharger Kit</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; text-align: center; }
+        .header { background-color: #333; color: white; padding: 20px; font-size: 28px; font-weight: bold; }
+        .container { max-width: 900px; margin: 30px auto; padding: 20px; background: white; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); border-radius: 10px; }
+        .product img { width: 100%; height: auto; border-radius: 5px; }
+        .product h2 { font-size: 24px; color: #333; }
+        .description { font-size: 18px; color: gray; text-align: justify; padding: 20px; }
+        .price { font-size: 22px; font-weight: bold; color: #28a745; }
+        .back-btn { display: inline-block; margin-top: 20px; padding: 10px 15px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; }
+    
+<style>
+    .cart-actions { margin-top: 20px; }
+    .quantity-input { width: 50px; padding: 5px; margin: 0 10px; text-align: center; }
+    .add-to-cart, .purchase-now { display: inline-block; padding: 10px 15px; margin: 5px; text-decoration: none; border-radius: 5px; font-size: 16px; }
+    .add-to-cart { background: #007bff; color: white; }
+    .purchase-now { background: #28a745; color: white; }
+
+<style>
+    .site-header { background-color: #007bff !important; color: white; text-align: center; padding: 15px; font-size: 20px; width: 100%; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); }
+    .site-header nav a { color: #0056b3 !important; margin: 0 10px; text-decoration: none; font-size: 18px; font-weight: bold; background: white; padding: 5px 10px; border-radius: 5px; }
+    .site-header nav a:hover { text-decoration: underline; background: #e0e0e0; }
+    .cart-icon { font-size: 20px; margin-left: 5px; }
+    #cart-count { background: red; color: white; font-size: 16px; padding: 3px 7px; border-radius: 50%; margin-left: 5px; display: inline-block; }
+    .site-footer { background: #333; color: white; text-align: center; padding: 15px; margin-top: 20px; font-size: 16px; width: 100%; }
+
+<style>
+    .site-header { background: #007bff; color: white; text-align: center; padding: 15px; font-size: 20px; width: 100%; }
+    .site-header nav a { color: blue !important; margin: 0 10px; text-decoration: none; font-size: 18px; font-weight: bold; background: white; padding: 5px 10px; border-radius: 5px; }
+    .site-header nav a:hover { text-decoration: underline; background: #e0e0e0; }
+    .cart-icon { font-size: 20px; margin-left: 5px; }
+    #cart-count { background: red; color: white; font-size: 16px; padding: 3px 7px; border-radius: 50%; margin-left: 5px; display: inline-block; }
+    .site-footer { background: #333; color: white; text-align: center; padding: 15px; margin-top: 20px; font-size: 16px; width: 100%; }
+</style>
+</style>
+</style>
+</style>
+</head>
+<body>
+<header class="site-header">
+    <h1>Auto Performance Parts Store</h1>
+    <nav>
+        <a href="index.html" class="nav-link">Home</a> |
+        <a href="shop.html" class="nav-link">Shop</a> |
+        <a href="cart.html" class="nav-link">Cart <span class="cart-icon">&#128722;</span> <span id="cart-count">0</span></a>
+    </nav>
+</header>
+
+    <div class="header">Turbocharger Kit<div class='cart-actions'></div>
+    <div class="container">
+        <div class="product">
+            <img src="https://raw.githubusercontent.com/geno1876/AutoPartsDirect/main/images/turbocharger_kit.jpg" alt="Turbocharger Kit">
+            <h2>Turbocharger Kit</h2>
+            <p class="description">Increase your engine's power with this high-performance turbocharger kit, delivering maximum boost.</p>
+            
+<div class="cart-actions">
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" value="1" min="1" max="10" class="quantity-input">
+    <a href="#" class="add-to-cart">Add to Cart</a>
+    <a href="#" class="purchase-now">Purchase Now</a>
+</div>
+
+<p class="price">$2000</p>
+        </div>
+        
+    </div>
+
+<footer class="site-footer">
+    <p>&copy; 2025 Auto Performance Parts Store. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let cartCount = localStorage.getItem("cartCount") || 0;
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        document.getElementById("cart-count").innerText = cart.length;
+
+        function updateCartDisplay() {
+            document.getElementById("cart-count").innerText = cart.length;
+            localStorage.setItem("cart", JSON.stringify(cart));
+            localStorage.setItem("cartCount", cart.length);
+        }
+
+        function getProductDetails() {
+            let productName = document.querySelector(".product h2").innerText;
+            let productPrice = parseFloat(document.querySelector(".price").innerText.replace("$", ""));
+            let quantityInput = document.getElementById("quantity");
+            let quantity = quantityInput ? parseInt(quantityInput.value) : 1;
+            return { name: productName, price: productPrice, quantity: quantity, total: productPrice * quantity };
+        }
+
+        let addToCartButton = document.querySelector(".add-to-cart");
+        if (addToCartButton) {
+            addToCartButton.addEventListener("click", function(event) {
+                event.preventDefault();
+                let product = getProductDetails();
+                cart.push(product);
+                updateCartDisplay();
+                alert(product.name + " added to cart!");
+            });
+        }
+
+        let purchaseNowButton = document.querySelector(".purchase-now");
+        if (purchaseNowButton) {
+            purchaseNowButton.addEventListener("click", function(event) {
+                event.preventDefault();
+                let product = getProductDetails();
+                localStorage.setItem("checkoutItem", JSON.stringify(product));
+                window.location.href = "checkout.html";
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
